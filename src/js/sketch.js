@@ -4,13 +4,16 @@ let helpLightKeyboard;
 
 function setup() {
 
-  COLOR_KEY = color(180);
-  COLOR_LIGHTBULB = color(0,255,0);
+  COLOR_KEY = color(100);
+  COLOR_KEY_TXT = color(70);
+  COLOR_LIGHTBULB = color("#ffeb3b");
+  COLOR_LIGHTBULB_TXT = color(20);
+
 
   COLOR_PLUG_STD = color(100);
   COLOR_STROKE_STD = color(0);
   COLOR_MAGNET_PLUG = color(255,0,0);
-  COLOR_PLUG_LINKED = color(150,150,215);
+  COLOR_PLUG_LINKED = color('#ff9800');
   COLOR_STROKE_LINKED = color(255,255,255);
   WEIGHT_STROKE_STD = 2;
   WEIGHT_STROKE_LINKED = 5;

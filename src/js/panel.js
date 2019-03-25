@@ -20,15 +20,15 @@ class Panel extends Keyboard {
     this.plugs = [];
     this.letters = [0, 25, 4, 17, 19, 24, 20, 8, 14, 15, 16, 18, 3, 5, 6, 7, 9, 10, 11, 12, 22, 23, 2, 21, 1, 13];
     for (let i = 0; i < 10; i++) {
-      let k = new Plug(this.letters[i], x + i * 3 * r, y, r, r / 2)
+      let k = new Plug(this.letters[i], x + i * 3 * r, y, r, 3*r / 5);
       this.plugs.push(k);
     }
     for (let i = 0; i < 9; i++) {
-      let k = new Plug(this.letters[i + 10], x + (3 * r / 2) + i * 3 * r, y + (2 * r), r, r / 2)
+      let k = new Plug(this.letters[i + 10], x + (3 * r / 2) + i * 3 * r, y + (2 * r), r, 3*r / 5);
       this.plugs.push(k);
     }
     for (let i = 0; i < 7; i++) {
-      let k = new Plug(this.letters[i + 19], x + (3 * r) + i * 3 * r, y + (4 * r), r, r / 2)
+      let k = new Plug(this.letters[i + 19], x + (3 * r) + i * 3 * r, y + (4 * r), r, 3*r / 5);
       this.plugs.push(k);
     }
     this.wires = w;
@@ -150,6 +150,15 @@ class Plug {
     textSize(this.sizeLetter);
     text(this.letter, this.x, this.y);
     pop();
+    if(panel.wires[this.id] !== this.id){
+      push();
+      textAlign(CENTER, CENTER)
+      fill(colStrokeAndText);
+      noStroke();
+      textSize(this.sizeLetter/2);
+      text(String.fromCharCode(panel.wires[this.id] + 65), this.x, this.y+this.sizeLetter);
+      pop();
+    }
     pop();
   }
 }

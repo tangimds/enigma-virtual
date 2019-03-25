@@ -59,15 +59,22 @@ class Key{
   }
   
   show(){
-    let col;
-    if(this.light) col = COLOR_LIGHTBULB;
-    else col = COLOR_KEY;
+    let col = COLOR_KEY;
+    let coltxt = COLOR_KEY_TXT;
+    if(this.light){
+      coltxt = COLOR_LIGHTBULB_TXT;
+      col = COLOR_LIGHTBULB;
+    }
+
+    push();
     fill(col);
     circle(this.x,this.y,this.r);
+    pop();
+
     
     push();
     textAlign(CENTER,CENTER)
-    fill(0);
+    fill(coltxt);
     textSize(this.sizeLetter);
     text(this.letter,this.x,this.y);
     pop();
