@@ -119,7 +119,7 @@ function draw() {
 }
 
 function mousePressed() {
-  if (mouseY < height / 2) {
+  if (mouseY < panel.y - 100) {
     //for rotors
     let d3P = dist(mouseX, mouseY, posXRotors, posYRotors-20);
     let d3M = dist(mouseX, mouseY, posXRotors, posYRotors+20);
@@ -213,11 +213,14 @@ function keyPressed() {
   if (!pressingKey) {
     let key = keyCode - 65;
     print("PRESSED :: ", key);
-    if (key === -57) {
+    if (key === -57 && bufClear.value.length>0) {
       // 'del' pressed
+      if(bufClear.value[bufClear.value.length-1] !== -33){
+        backRotors();
+      }
       bufCrypted.delete();
       bufClear.delete();
-      backRotors();
+      
     } else if(key === -33){
       // 'spacebar' pressed
       bufClear.add(-33);
